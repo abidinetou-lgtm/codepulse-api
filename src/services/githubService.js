@@ -1,18 +1,11 @@
-// githubService.js
-// Récupère les repos GitHub tendance.
-// GitHub n'a pas d'API officielle pour les tendances,
-// donc on utilise une API non officielle fiable.
-
 import fetch from 'node-fetch'
 import { getCache, setCache } from '../cache.js'
 
 export async function fetchGithubTrending(language = '', since = 'daily') {
   const cacheKey = `github_${language}_${since}`
-
   const cached = getCache(cacheKey)
   if (cached) return cached
 
-  // API non-officielle GitHub Trending (très utilisée)
   const url = `https://gh-trending-api.vercel.app/repositories?language=${language}&since=${since}`
 
   try {
@@ -31,8 +24,9 @@ export async function fetchGithubTrending(language = '', since = 'daily') {
       title:       repo.name,
       desc:        repo.description || 'Pas de description disponible.',
       url:         repo.url,
+      cover:       `https://opengraph.githubassets.com/1/${repo.author}/${repo.name}`,
       author:      repo.author,
-      avatar:       repo.avatar,
+      avatar:      repo.avatar,
       language:    repo.language,
       stars:       repo.stars,
       forks:       repo.forks,

@@ -27,7 +27,17 @@ const PORT = process.env.PORT || 3001
 // à parler à ce backend (localhost:3001)
 // Sans ça, le navigateur bloque les requêtes.
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174']
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175',
+    'http://localhost:5176',
+    'http://localhost:5177',
+    'http://localhost:5178',
+    'http://localhost:5179',
+    'http://localhost:5180',
+    'https://codepulse-rouge.vercel.app',
+  ]
 }))
 
 // Permet de lire du JSON dans les requêtes

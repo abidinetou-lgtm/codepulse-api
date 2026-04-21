@@ -11,7 +11,7 @@ import dotenv from 'dotenv'
 import devtoRoutes from './src/routes/devto.js'
 import githubRoutes from './src/routes/github.js'
 import hackernewsRoutes from './src/routes/hackernews.js'
-
+import newsApiRoutes from './src/routes/newsapi.js'
 // Charge les variables d'environnement depuis .env
 dotenv.config()
 
@@ -51,7 +51,7 @@ app.use(express.json())
 app.use('/api/devto',      devtoRoutes)
 app.use('/api/github',     githubRoutes)
 app.use('/api/hackernews', hackernewsRoutes)
-
+app.use('/api/newsapi', newsApiRoutes)
 // Route de santé — pour vérifier que le serveur tourne
 // Va sur http://localhost:3001/api/health pour tester
 app.get('/api/health', (req, res) => {

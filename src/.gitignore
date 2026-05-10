@@ -1,3 +1,20 @@
-node_modules/
+# Variables d'environnement — JAMAIS sur GitHub
 .env
+.env.local
+.env.production
+.env.staging
+
+# Dépendances
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
 .DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
